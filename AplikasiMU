@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp()); //Fungsi utama untuk menjalankan aplikasi
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.amber, //Warna Latar belakang AppBar
+          title: Text(
+            'Project Flutter', // Judul di AppBar
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true, // Judul posisinya ditengah
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(18.0), // Padding untuk seluruh halaman
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment
+                .center, // Elemen diletakkan ditengan secara vertikal
+            crossAxisAlignment:
+                CrossAxisAlignment.stretch, // Lebar penuh untuk elemen
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(), // Bingkai untuk form input
+                  labelText: 'M Zudi Sakuri', // Label form
+                  hintText: 'Contoh: M Zudi Sakuri', // Petunjuk texts
+                ),
+              ),
+              SizedBox(height: 22), // Jarak antara form input dan tombol
+              ElevatedButton(
+                onPressed: () {
+                  // Aksi tombol saat ditekan
+                  print('Tombol ditekan!');
+                },
+                child: Text('Kirim'), // Teks di tombol
+              ),
+              SizedBox(height: 30), // Jarak sebelum logo
+              Image.network(
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2-TVphB148wg1omRxgqXTMk9lDbLyunCmdw&s', // URL gambar Logo
+                height: 100, // Tinggi gambar
+                fit: BoxFit.contain, // Menyusaikan ukuran gambar
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
